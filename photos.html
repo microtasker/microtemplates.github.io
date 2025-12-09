@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Download Photos</title>
+</head>
+<body>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #0d0d0d;
+    color: white;
+    text-align: center;
+    padding: 30px;
+  }
+  .card {
+    max-width: 400px;
+    margin: auto;
+    background: #1a1a1a;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.1);
+  }
+  img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 15px;
+  }
+  button {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    border: none;
+    border-radius: 12px;
+    background: #00c853;
+    color: white;
+    cursor: pointer;
+  }
+  button:hover {
+    background: #00e676;
+  }
+</style>
+
+</head>
+<body>
+
+<div class="card">
+  <h2>Random Preview</h2>
+  <img id="preview" src="https://i.postimg.cc/7hWSmpD7/DSC-0017.jpg" alt="Photo Preview">
+
+  <button onclick="downloadAll()">📥 Download All Photos</button>
+</div>
+
+<script>
+function downloadAll() {
+  const files = [
+    "https://drive.google.com/uc?export=download&id=1CHYIz2qwdrjNcu8wZ3OmbSqrt5REXDRH",
+    "https://drive.google.com/uc?export=download&id=17unOb5D0aOMTrGdSKAV_6G8p_fRA3yc6",
+    "https://drive.google.com/uc?export=download&id=1F9RVoLb-nwjlR3Aqk53SUSJzLrIpxEtA",
+    "https://drive.google.com/uc?export=download&id=1l2ryP8Kaw8vkuiUFsFoGG6cnsulCXcwR",
+    "https://drive.google.com/uc?export=download&id=14rN1C0AJ9Bca-sThffu9F88u0oPF3sV3",
+    "https://drive.google.com/uc?export=download&id=1ViNiP8Es3g7ARYR326N8vFWiAg1x7Bfi",
+    "https://drive.google.com/uc?export=download&id=1d2-8RImpyv1YmJbvzJzl1MjTqQMb1V44",
+    "https://drive.google.com/uc?export=download&id=15wG3Pd6jSA2K5vnb_OFlldNShZ33zrnL",
+    "https://drive.google.com/uc?export=download&id=1faCXOY0GqbQu9F9I3BpmyOK4skJv6Mnc",
+    "https://drive.google.com/uc?export=download&id=1IkVWUAq_IruwjEdI0z--DgCfrzcrzaZZ",
+    "https://drive.google.com/uc?export=download&id=1CkJl1pSzAbhjA0FKBTYhbuMVd77_3t8t",
+    "https://drive.google.com/uc?export=download&id=13MEnfDaeX2iZR2MafGuw1qDW19GGhZUl",
+    "https://drive.google.com/uc?export=download&id=1zWHhH-zQEYUFpv84zOIB9zfGNECOHxx1",
+    "https://drive.google.com/uc?export=download&id=1IlEUmK-4NVNTbJKo06OVcubbk-0AvL_g",
+    "https://drive.google.com/uc?export=download&id=1YQgnin2HQ6SfuWwQmzgIs-bmhRYzIRNO",
+    "https://drive.google.com/uc?export=download&id=17Ocj2YW1XHsp2B2eHk99jYkv1DIL2CiU",
+    "https://drive.google.com/uc?export=download&id=1nh_GnZ3JUJr7Q4GMfOk-hel9rtR2FrJw",
+    "https://drive.google.com/uc?export=download&id=1HPEepZ95FmsQfAxvJ4ozWtL09fKF6x1x",
+    "https://drive.google.com/uc?export=download&id=1w-Sr9BQpuU3x9VMZ7v2zweOmM8Y-y4xX",
+    "https://drive.google.com/uc?export=download&id=1COz5IIvwWRDtaVl6CmMh6DqybY63UFYQ",
+    "https://drive.google.com/uc?export=download&id=1IOE1wbI2n55Go-s1I6ZsZtSAIUg8Cfk-",
+    "https://drive.google.com/uc?export=download&id=1MaPGn0CvCVp_Y9cFjIlvLFXEPJ6r4C9i",
+    "https://drive.google.com/uc?export=download&id=17C2AuyYIPCUp3bMjIsDrBZy7gRCKQLxW",
+    "https://drive.google.com/uc?export=download&id=1GXn1Bih6Z7HJ9G_tIAh9vl-0GlMOVKyY",
+    "https://drive.google.com/uc?export=download&id=1BruxLwExk1XoOaX2uZFdxF_mdJKvBUzv",
+    "https://drive.google.com/uc?export=download&id=1DoCAkHadPaKSVCmaA8Vqw5KxupD8nn60",
+    "https://drive.google.com/uc?export=download&id=1qj8pSFae39v3UiJka4P5cpsANNlxkLJH",
+    "https://drive.google.com/uc?export=download&id=1iWTUsytIRpwugWJeDVmgUNPnqPx79Y1Z",
+    "https://drive.google.com/uc?export=download&id=1iVqxXsOmBnGLy0B4ToJtfNg1nQ_EN0GX",
+    "https://drive.google.com/uc?export=download&id=1UX1DyGHjKeffucs42SrWLhkFq9QoekNv",
+    "https://drive.google.com/uc?export=download&id=167UJcUJMcaJcC7Z11kEPE-wL0z6ys0GM",
+    "https://drive.google.com/uc?export=download&id=1kHSpwL1idh-b8un7flUbC1vHGmN1ka5i",
+    "https://drive.google.com/uc?export=download&id=1_DwP0xHDfnRYw-LEemx-c2nGYT7Uw6wS",
+    "https://drive.google.com/uc?export=download&id=1bPZLUTw1bxhGNH5Regjpwza5EnRlgvVO",
+    "https://drive.google.com/uc?export=download&id=1fw9euESeKPuYLcGo6FGJph7TH4BRHvlP",
+    "https://drive.google.com/uc?export=download&id=1SLyXzqsMv7TDXY64gbeSKDLQ5HJZJSbH",
+    "https://drive.google.com/uc?export=download&id=1IafKx-Dv0lWmtcFusABFtcp_LRo2LTz4",
+    "https://drive.google.com/uc?export=download&id=1ajBH1Fldz6oy9jr7Q4wSzPD9fiBX2G99",
+    "https://drive.google.com/uc?export=download&id=1FDdYIBYVbstmVQSBVSHuy5pPjyB1GsOX",
+    "https://drive.google.com/uc?export=download&id=1in_cKGcIpEZy4YZhdcS4yXIuQhTuq2tT",
+    "https://drive.google.com/uc?export=download&id=1xSJh39BQ1exWeS6VLsAJvKT9k3HOeDQZ",
+    "https://drive.google.com/uc?export=download&id=1OCtjlh5_JNDqq7jk_GRQyH79IMd9CD3C",
+    "https://drive.google.com/uc?export=download&id=1HR5YiYVZyAUCSp2skiBN2EvP1OnHysv-",
+    "https://drive.google.com/uc?export=download&id=1-yUVBmVuRm9_JmOCl0SYnHS_6g0zpbT6",
+    "https://drive.google.com/uc?export=download&id=1gsrOG5G6jWaa1yTSPO97pav1lj-V-Clo",
+    "https://drive.google.com/uc?export=download&id=1mh4--inVH3Vhj7KjoELtKgpEtojSL3VK",
+    "https://drive.google.com/uc?export=download&id=1E2z1YoMTShUie-K2AEpn87VMEUIybacx",
+    "https://drive.google.com/uc?export=download&id=1Nm3s9yehpn66kUHYXJjKKCRRXqeEeFk4",
+    "https://drive.google.com/uc?export=download&id=1MLWMaQg3nxWoiY2-QDJEBS2terA2fJbI",
+    "https://drive.google.com/uc?export=download&id=186zitfKfxbLwID_K6IYgy0X8xFZexFik"
+  ];
+
+  let index = 0;
+
+  function downloadNext() {
+    if (index >= files.length) return;
+
+    const a = document.createElement("a");
+    a.href = files[index];
+    a.download = "";
+    a.target = "_blank";   // Required
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+
+    index++;
+
+    setTimeout(downloadNext, 2000); // Wait 2 seconds
+  }
+
+  downloadNext();
+}
+
+</script>
+
+</body>
+</html>
